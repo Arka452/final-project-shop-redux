@@ -2,16 +2,21 @@
 import './Header.css'
 const Header = () => {
     return (
-        <div className='flex justify-around items-center mt-6 p-5 h-[70px] bg-[#a5b6b64b] backdrop-blur-lg rounded-full m-auto w-[50%]'>
-            <div><h2 className='text-3xl -mt-1 font-extralight'>MR.BLUE</h2></div>
-            <div><input type="text" className='bg-[#FEFCF8] rounded-l-md p-1 outline-none inline-block'></input><button className='bg-[#FEFCF8] p-1 rounded-r-md border-[#cfcfcf] border-l font-light hover:font-medium transition-all'>Search</button></div>     
+        <div className='flex justify-around items-center mt-6 p-5 h-[70px] bg-white rounded-full mx-auto w-[80%] border-[1px] border-black navbar'>
+  <a className='text-3xl font-extralight' href='/'>MR.BLUE</a>
+
+  <div className="flex items-center border-2 rounded-lg border-black">
+    <input type="text" className="bg-white border-gray-300 rounded-lg p-2 outline-none transition-all"/>
+    <button className="bg-[#ffffff] text-black p-2 hover:bg-[#000000] rounded-r-md  hover:text-white transition-all">Search</button>
+  </div>
+     
             <div>
                 <ul className='flex gap-6 font-semibold '>
-                    <li className='hover:border-b-2 border-[#515151]'>
-                        <a href="/">Basket</a>
+                    <li className='hover:border-b-2 transition-all duration-150 border-[#515151]'>
+                        <a href="/basket">Basket</a>
                     </li>
-                    <li className='hover:border-b-2 border-[#515151]'>
-                        <a href="/">Account</a>
+                    <li className='hover:border-b-2 transition-all duration-150 border-[#515151]'>
+                        <a href="/account">Account</a>
                     </li>
                 </ul>
             </div>
