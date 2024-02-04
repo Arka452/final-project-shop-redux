@@ -1,0 +1,30 @@
+.comic-button {
+  display: inline-block;
+  padding: 6px 10px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #ff5252;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-shadow: 5px 5px 0px #000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.comic-button:hover {
+  background-color: #fff;
+  color: #111;
+}
+
+.comic-button:active {
+  background-color: #ff5252;
+  box-shadow: none;
+  transform: translateY(4px);
+  color: #111;
+}
+
+.singleProduct {
+  box-shadow: 5px 5px 1px #373737, 5px 5px 1px #ffffff;
+}
