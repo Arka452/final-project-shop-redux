@@ -41,7 +41,7 @@ const Product = () => {
             <img className="w-80 h-80 shadow-xl p-2" src={product.image} alt={product.title} />
           </div>
           <div>
-            <h3 className="mb-5 text-4xl font-extralight first-letter:text-5xl first-letter:font-bold">
+            <h3 className="mb-5 text-3xl w-[20em] text-center font-extralight first-letter:text-5xl first-letter:font-bold">
               {product.title}
             </h3>
             <p className="w-96 text-lg text-justify m-auto mb-8">
