@@ -1,15 +1,24 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react"
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import StarRateIcon from '@mui/icons-material/StarRate';
 import './Product.css'
+import { Link } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
 const Product = () => {
 
   const [product, setProduct] = useState({});
   const location = useLocation();
   const productId = location.state.id;
+  const [liked, setLiked] = useState(false)
+  
+
   console.log(location.state.id)
   const URL = `https://fakestoreapi.com/products/${productId}`;
+
 
   useEffect(() => {
 
@@ -25,17 +34,19 @@ const Product = () => {
 
     fetchProduct()
 
-
-
-
   }, [URL])
 
-  console.log(product)
+  const likeHandler = () => {
+    const like = liked;
+    setLiked(!like)
+  }
 
 
   return (
     <>
-      <div className="block mt-36 border-2 border-black p-20 w-[60%] m-auto backdrop-blur-sm py-28 singleProduct">
+      <Link to='/'><button className='btn-product text-lg font-bold'><ArrowBackIcon className='-mt-1 mr-1' />Back </button></Link>
+
+      <div className="block mt-32 border-2 border-black p-20 w-[60%] m-auto backdrop-blur-sm py-28 singleProduct">
         <div className="flex justify-center gap-14 ">
           <div>
             <img className="w-80 h-80 shadow-xl p-2" src={product.image} alt={product.title} />
@@ -59,7 +70,8 @@ const Product = () => {
               <StarRateIcon />
             </div>
           </div>
-          <button className="comic-button px-6 py-3">Add to Cart</button>
+          {liked === true ? <button onClick={likeHandler} className="like-button"><span className="text-xl">Liked</span><FavoriteIcon className={liked ? 'text-red-500 transition-all heart-liked' : 'stroke-red-500 text-white transition-all heart'} /></button> :
+            <button onClick={likeHandler}><FavoriteIcon className={liked ? 'text-red-500 transition-all heart-liked' : 'stroke-red-500 text-white transition-all heart'} /></button>}
         </div>
       </div>
 

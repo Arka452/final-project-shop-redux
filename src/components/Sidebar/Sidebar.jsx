@@ -6,11 +6,11 @@ import LaptopIcon from '@mui/icons-material/Laptop';
 import ManIcon from '@mui/icons-material/Man';
 import WomanIcon from '@mui/icons-material/Woman';
 import { Link } from 'react-router-dom';
-const Sidebar = ({ OneToTen, TenToHundreed, HundreedToTausend, GreaterThanTausend, RemoveFilter, filteredProducts }) => {
+const Sidebar = ({ OneToTen, TenToHundreed, HundreedToTausend, GreaterThanTausend, RemoveFilter, filteredProducts,cart }) => {
 
     const [categories] = useState([
-        { name: 'electronics', icon: <LaptopIcon /> },
-        { name: 'jewelery', icon: <DiamondIcon /> },
+        { name: "electronics", icon: <LaptopIcon /> },
+        { name: "jewelery", icon: <DiamondIcon /> },
         { name: "men's clothing", icon: <ManIcon /> },
         { name: "women's clothing", icon: <WomanIcon /> }
     ]);
@@ -18,7 +18,7 @@ const Sidebar = ({ OneToTen, TenToHundreed, HundreedToTausend, GreaterThanTausen
 
     return (
         <>
-            <div className='mt-14 bg-white h-fit py-10 px-7 fixed ml-4 border-2 border-black rounded-md sidebar'>
+            <div className='mt-14 bg-white h-fit py-10 px-7 fixed ml-4 border-2 border-black rounded-md sidebar z-50'>
 
 
 
@@ -27,7 +27,7 @@ const Sidebar = ({ OneToTen, TenToHundreed, HundreedToTausend, GreaterThanTausen
                 {categories.map((item) => {
                     return (
                         <ul key={item.name} className='mt-4'>
-                            <li className='flex flex-col mb-3 transition-all hover:text-white w-fit p-2 text-lg hover:bg-[#0f0f0f] rounded-sm'><Link to={`/products/categories/${item.name}`}>{item.name} {item.icon}</Link></li>
+                            <li className='flex flex-col mb-3 transition-all hover:text-white w-fit p-2 text-lg hover:bg-[#0f0f0f] rounded-sm'><Link state={{ name: item.name ,cart:cart }} to={`/products/categories/${item.name}`}>{item.name} {item.icon}</Link></li>
                         </ul>
                     )
                 })}
@@ -37,7 +37,7 @@ const Sidebar = ({ OneToTen, TenToHundreed, HundreedToTausend, GreaterThanTausen
                     <button className='mb-3 text-lg  focus:border-b-2 border-black' onClick={TenToHundreed}>$10-100</button>
                     <button className='mb-3 text-lg  focus:border-b-2 border-black' onClick={HundreedToTausend}>$100-1000</button>
                     <button className='mb-3 text-lg  focus:border-b-2 border-black' onClick={GreaterThanTausend}>More than $1000</button>
-                    {filteredProducts === null ? null : <button className='mb-3 text-lg bg-black p-2 text-white mt-2 hover:text-red-500 active:scale-90 transition-all border-black' onClick={RemoveFilter}>Remove filter</button>}
+                    {filteredProducts !== null ? <button className='mb-3 text-lg bg-black p-2 text-white mt-2 hover:text-red-500 active:scale-90 transition-all border-black' onClick={RemoveFilter}>Remove filter</button> : null}
                 </div>
             </div>
         </>

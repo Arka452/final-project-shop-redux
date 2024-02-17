@@ -1,3 +1,9 @@
-.sidebar{
-    box-shadow: 0px 2px 1px #111;
+.sidebar {
+  box-shadow: 0px 2px 1px #111;
+}
+
+@media only screen and (max-width: 1200px) {
+  .sidebar {
+    display: none !important;
   }
+}
