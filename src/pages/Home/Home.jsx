@@ -1,16 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import './Home.css'
 import { Link } from 'react-router-dom'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Sidebar from '../../components/Sidebar/Sidebar'
 import Header from '../../components/Header/Header';
+import { CartContext } from '../../context/CartContext';
+
+
+
+
 const Home = () => {
 
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [cart, setCart] = useState([]);
+    const { cart, setCart } = useContext(CartContext);
+
+
+
 
     useEffect(() => {
         const storedCart = localStorage.getItem('cart');
@@ -130,7 +138,7 @@ const Home = () => {
                                     <Link className='m-auto cursor-pointer' to={`/products/${item.id}`} state={{ id: item.id }}>
                                         <button
                                             type='button'
-                                            className='text-black bg-[#fff] border-spacing-1 border-black rounded-md p-2 border-2 focus:outline-none hover:scale-105 transition-all hover:text-[#ff5252]'
+                                            className='text-black active:scale-90 bg-[#fff] border-spacing-1 border-black rounded-md p-2 border-2 focus:outline-none hover:scale-105 transition-all hover:text-[#ff5252]'
                                         >
                                             More...
                                         </button>
@@ -145,7 +153,7 @@ const Home = () => {
                                 </div>
                             </div>
                         )) : filteredProducts.map((item) => (
-                            <div key={item.id} className='productCard w-full h-96 flex flex-col justify-between items-center text-center m-auto border-2 border-black rounded-md p-6 transition-all duration-300 ease-in-out transform hover:shadow-lg hover:border-black hover:bg-gray-100 backdrop-blur-sm'>
+                            <div key={item.id} className='productCard w-64 h-96 flex flex-col justify-between items-center text-center m-auto border-2 border-black rounded-md p-6 transition-all duration-300 ease-in-out transform hover:shadow-lg hover:border-black hover:bg-gray-100 backdrop-blur-sm'>
                                 <img
                                     src={item.image}
                                     alt={item.title}
@@ -160,7 +168,7 @@ const Home = () => {
                                     <Link className='m-auto cursor-pointer' to={`/products/${item.id}`} state={{ id: item.id }}>
                                         <button
                                             type='button'
-                                            className='text-black bg-[#fff] border-spacing-1 border-black rounded-md p-2 border-2 focus:outline-none hover:scale-105 transition-all hover:text-[#ff5252]'
+                                            className='text-black active:scale-90 bg-[#fff] border-spacing-1 border-black rounded-md p-2 border-2 focus:outline-none hover:scale-105 transition-all hover:text-[#ff5252]'
                                         >
                                             More...
                                         </button>

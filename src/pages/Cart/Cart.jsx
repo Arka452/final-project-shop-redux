@@ -1,17 +1,18 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import './Cart.css'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { ShoppingCart } from '@mui/icons-material';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Fade, Typography } from '@mui/material';
+import { CartContext } from '../../context/CartContext';
 
 const Cart = () => {
 
-    const location = useLocation();
-    const [cart, setCart] = useState(location.state.cart); //ma mitunim ba yek hooke useState va useLocation yek state e kamel ra be in surat pass bedim. ba hamin kar ham mitavanim dar page e product in kar ra ruye state e cart emal konim va dakhele cart ezafe konim!!!
+
+    const { cart, setCart } = useContext(CartContext) //ma mitunim ba yek hooke useState va useLocation yek state e kamel ra be in surat pass bedim. ba hamin kar ham mitavanim dar page e product in kar ra ruye state e cart emal konim va dakhele cart ezafe konim!!!
     const [quantity, setQuantity] = useState(cart.quantity);
     const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ const Cart = () => {
         setCart(filtered)
     }
 
-    const checkOutHandler = () =>{
+    const checkOutHandler = () => {
         setCart([])
         localStorage.clear();
         setTimeout(() => {
@@ -48,8 +49,9 @@ const Cart = () => {
             {cart.length === 0 ? <>
                 <Fade in={true}>
                     <div className="container">
-                        <ShoppingCart className="icon" />
+                        <ShoppingCartOutlinedIcon className="icon" />
                         <Typography variant="h5">Your cart is empty!</Typography>
+                        <p className='mt-5 text-xl font-extralight'>Looks like you have not added anything to your cart. Go ahead and explore top categories.</p>
                     </div>
                 </Fade>
             </> :

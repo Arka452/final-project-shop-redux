@@ -6,7 +6,7 @@ import LaptopIcon from '@mui/icons-material/Laptop';
 import ManIcon from '@mui/icons-material/Man';
 import WomanIcon from '@mui/icons-material/Woman';
 import { Link } from 'react-router-dom';
-const Sidebar = ({ OneToTen, TenToHundreed, HundreedToTausend, GreaterThanTausend, RemoveFilter, filteredProducts,cart }) => {
+const Sidebar = ({ OneToTen, TenToHundreed, HundreedToTausend, GreaterThanTausend, RemoveFilter, filteredProducts, cart }) => {
 
     const [categories] = useState([
         { name: "electronics", icon: <LaptopIcon /> },
@@ -16,10 +16,11 @@ const Sidebar = ({ OneToTen, TenToHundreed, HundreedToTausend, GreaterThanTausen
     ]);
 
 
+
+
     return (
         <>
-            <div className='mt-14 bg-white h-fit py-10 px-7 fixed ml-4 border-2 border-black rounded-md sidebar z-50'>
-
+            <div className='mt-14 bg-white h-fit py-10 px-7 absolute ml-4 border-2 border-black rounded-md sidebar z-50'>
 
 
                 <h3 className='text-3xl font-extralight mb-10'><span className='font-bold font-serif'>MR</span>.BLUE SHOP</h3>
@@ -27,7 +28,7 @@ const Sidebar = ({ OneToTen, TenToHundreed, HundreedToTausend, GreaterThanTausen
                 {categories.map((item) => {
                     return (
                         <ul key={item.name} className='mt-4'>
-                            <li className='flex flex-col mb-3 transition-all hover:text-white w-fit p-2 text-lg hover:bg-[#0f0f0f] rounded-sm'><Link state={{ name: item.name ,cart:cart }} to={`/products/categories/${item.name}`}>{item.name} {item.icon}</Link></li>
+                            <li className='flex flex-col mb-3 transition-all hover:text-white w-fit p-2 text-lg hover:bg-[#0f0f0f] rounded-sm'><Link state={{ name: item.name, cart: cart }} to={`/products/categories/${item.name}`}>{item.name} {item.icon}</Link></li>
                         </ul>
                     )
                 })}
