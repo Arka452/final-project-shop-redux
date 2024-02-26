@@ -4,7 +4,6 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link } from 'react-router-dom';
-import { DevTool } from "@hookform/devtools";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
@@ -46,7 +45,7 @@ const Account = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { register, handleSubmit, control, formState, reset } = form;
+  const { register, handleSubmit, formState, reset } = form;
 
   const showPasswordHandler = () => {
     setShow(!show)
@@ -164,7 +163,6 @@ const Account = () => {
           </div>
         </form>
       </div>
-      <DevTool control={control} />
     </div>
   )
 }
