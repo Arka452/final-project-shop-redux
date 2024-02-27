@@ -19,7 +19,7 @@ const Footer = () => {
         <div className='mr-7'>
           <ul className='text-lg'>
             <li className='flex flex-col'>
-              <a href="https://github.com/Arka452"><GitHubIcon /> Github</a><a href=""><LinkedInIcon /> LinkedIn</a><a href="/"><FacebookIcon /> Facebook</a><a href="/"><InstagramIcon /> Instagram</a>
+              <a href="https://github.com/Arka452"><GitHubIcon /> Github</a><a href="https://www.linkedin.com/in/arka-babakhani-2b1224250?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><LinkedInIcon /> LinkedIn</a><a href="/"><FacebookIcon /> Facebook</a><a href="/"><InstagramIcon /> Instagram</a>
             </li>
           </ul>
         </div>
